@@ -186,19 +186,14 @@ class UserDAO {
 
         
         if ($result->num_rows > 0) {
-            
-            echo "<table>";
             // output data of each row
             while($row = $result->fetch_assoc()) {
-
-                echo "<tr><td>" . $row["first_name"] . "</td>";
-                echo "<td>" . $row["last_name"] . "</td>";
-                echo "<td>" . $row["username"] . "</td>";
-                echo "<td>" . $row["ability_rating"] . "</td></tr>";
-
+                $user->setFirstName($row["first_name"]);
+                $user->setLastName($row["last_name"]);
+                $user->setUsername($row["username"]);
+                $user->setPassword($row["password"]);
+                $user->setAbilityRating($row["ability_rating"]);
             }
-            
-            echo "</table>";
         } else {
             echo "0 results";
         }

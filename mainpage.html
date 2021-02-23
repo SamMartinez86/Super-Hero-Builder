@@ -125,6 +125,7 @@ function abilityselect(ability_rating)
                 document.getElementById("lastName").innerHTML = data.last_name;
                 document.getElementById("userName").innerHTML = data.username;
                 document.getElementById("abilityrating").innerHTML = data.ability_rating;
+                console.log(data);
             }
 
         ).catch((error) => {
@@ -137,25 +138,23 @@ function abilityselect(ability_rating)
     }
 
 // show all data
-/*
-function showeverybody(){
-    fetch('https://cs3620app.azurewebsites.net/user_view.php')
-    .then(response => response.json())
-    .then(
-        function (data){
-            document.getElementById("everybody").innerHTML = data.;
-
-        }
-    ).catch((error) => {
-        alert("trouble displaying")
-    });    
-}
-*/
+function everybodyselect()
+    {
+        fetch('https://cs3620app.azurewebsites.net/userability.php')
+        .then(response => response.json())
+        .then(
+            function (data){
+                console.log(data);
+            }
+        ).catch((error) => {
+            alert("Can't get all the data")
+        });
+    }
 
 </script>
-<!--
-<div onload="showeverybody(document.getElementById('everybody').value);" ></div>
--->
+
+<div onload="everybodyselect(console.log(data).value);" ></div>
+
 <!--Query data-->
 <table class="w3-table" style="width:50%">
     <tr>
@@ -180,20 +179,20 @@ function showeverybody(){
     </tr>
 </table>
 
-<!--Insert data-->
+<!--Insert data
 <form method="POST" action="user_insert.php" >
     Username:<input type="text" name="username" /><br />
     First Name:<input type="text" name="firstName" /><br />
     Last Name:<input type="text" name="lastName" /><br />
     Password:<input type="password" name="password" /><br />
     <input type="submit" value="Create User" />
-</form>
+</form>-->
 
-<!--Delete data-->
+<!--Delete data
 <form method="POST" action="user_delete.php" >
     Username:<input type="text" name="username" /><br /><br />
     <input type="submit" value="Eliminate User" />
-</form>
+</form>-->
 
 <br>
 <br>
@@ -205,10 +204,6 @@ function showeverybody(){
 <div id="userName" ></div>
 <div id="abilityrating" ></div>
 
-<!--Display data from query-->
-<div id="firstName"></div>
-<div id="lastName" ></div>
-<div id="userName" ></div>
-<div id="abilityrating" ></div>
+
 
 
