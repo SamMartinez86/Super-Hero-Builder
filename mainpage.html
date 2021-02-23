@@ -125,7 +125,10 @@ function abilityselect(ability_rating)
                 document.getElementById("lastName").innerHTML = data.last_name;
                 document.getElementById("userName").innerHTML = data.username;
                 document.getElementById("abilityrating").innerHTML = data.ability_rating;
-                console.log(data);
+                array.forEach(element => {
+                    console.log(data);
+                });
+                
             }
 
         ).catch((error) => {
