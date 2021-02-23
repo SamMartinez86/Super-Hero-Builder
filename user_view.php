@@ -5,11 +5,9 @@
 <?php
     require_once('./User/UserCLS.php');
 
-    //$user = new user();
-    //$user->getUser(1);
 
     $user = new user();
-    $user->getUserN('ironman@avengers.com');
+    $user->getUser(2);
 
     echo $user->getUsername();
     echo "<br />";
