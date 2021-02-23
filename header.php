@@ -1,4 +1,5 @@
-<?php
-    echo "This is the header"
-?>
+<h1>
 
+*** Header ***
+
+</h1>

@@ -1,3 +1,5 @@
-<?php
-    echo "This is the footer"
-?>
+<h1>
+
+*** Footer ***
+
+</h1>

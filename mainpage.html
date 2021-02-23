@@ -1,9 +1,153 @@
-<?php require 'header.php'; ?php>
+<h1 id="header1"></h1>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+    h1 
+    {
+        text-align: center;
+    }
+    div 
+    {
+        text-align: center;
+        font-size: 20px;
+    }
+    th
+    {
+        text-align: left;
+    }
 
-<html>
-        <body>
-            <h1>This is the main page!</h1>
-        </body>
-</html>
+</style>
+<h1> query/insert/delete </h1>
 
-<?php require 'footer.php'; ?php>
+<script>
+
+// select statement based off user id
+    function userselect(user_id)
+    {
+        fetch('https://cs3620app.azurewebsites.net/users.php?id=' + user_id)
+        .then(response => response.json())
+        .then(
+
+            function (data){
+                document.getElementById("firstName").innerHTML = data.first_name;
+                document.getElementById("lastName").innerHTML = data.last_name;
+                document.getElementById("userName").innerHTML = data.username;
+            }
+
+        ).catch((error) => {
+            alert("That user does not yet exist")
+            document.getElementById("firstName").innerHTML = "";
+                document.getElementById("lastName").innerHTML = "";
+                document.getElementById("userName").innerHTML = "";
+        });
+    }
+
+// select statement based off username
+    function usernameselect(username)
+    {
+        fetch('https://cs3620app.azurewebsites.net/usernames.php?id=' + username)
+        .then(response => response.json())
+        .then(
+
+            function (data){
+                document.getElementById("firstName").innerHTML = data.first_name;
+                document.getElementById("lastName").innerHTML = data.last_name;
+                document.getElementById("userName").innerHTML = data.username;
+            }
+
+        ).catch((error) => {
+            alert("That user does not yet exist")
+            document.getElementById("firstName").innerHTML = "";
+                document.getElementById("lastName").innerHTML = "";
+                document.getElementById("userName").innerHTML = "";
+        });
+    }
+
+// select statement based off first name
+function firstnameselect(first_name)
+    {
+        fetch('https://cs3620app.azurewebsites.net/userfirst.php?id=' + first_name)
+        .then(response => response.json())
+        .then(
+
+            function (data){
+                document.getElementById("firstName").innerHTML = data.first_name;
+                document.getElementById("lastName").innerHTML = data.last_name;
+                document.getElementById("userName").innerHTML = data.username;
+            }
+
+        ).catch((error) => {
+            alert("That user does not yet exist")
+            document.getElementById("firstName").innerHTML = "";
+                document.getElementById("lastName").innerHTML = "";
+                document.getElementById("userName").innerHTML = "";
+        });
+    }
+
+// select statement based off last name
+function lastnameselect(last_name)
+    {
+        fetch('https://cs3620app.azurewebsites.net/userlast.php?id=' + last_name)
+        .then(response => response.json())
+        .then(
+
+            function (data){
+                document.getElementById("firstName").innerHTML = data.first_name;
+                document.getElementById("lastName").innerHTML = data.last_name;
+                document.getElementById("userName").innerHTML = data.username;
+            }
+
+        ).catch((error) => {
+            alert("That user does not yet exist")
+            document.getElementById("firstName").innerHTML = "";
+                document.getElementById("lastName").innerHTML = "";
+                document.getElementById("userName").innerHTML = "";
+        });
+    }
+
+</script>
+
+<!--Query data-->
+<table class="w3-table" style="width:50%">
+    <tr>
+        <th>User id: <input class="w3-input" type="text" id="theUserId" onfocus="this.value=''" /></th>
+        <th><input class="w3-button w3-round w3-blue" type="button" value="Get User" onclick="userselect(document.getElementById('theUserId').value);"  /></th>
+    </tr>
+    <tr>
+        <th>User Name: <input class="w3-input" type="text" id="theUserName" onfocus="this.value=''" /></th>
+        <th><input class="w3-button w3-round w3-blue" type="button" value="Get User name" onclick="usernameselect(document.getElementById('theUserName').value);"  /></th>
+    </tr>
+    <tr>
+        <th>First Name: <input class="w3-input" type="text" id="theUserFirst" onfocus="this.value=''" /></th>
+        <th><input class="w3-button w3-round w3-blue" type="button" value="Get First name" onclick="firstnameselect(document.getElementById('theUserFirst').value);" /></th>
+    </tr>
+    <tr>
+        <th>Last Name: <input class="w3-input" type="text" id="theUserLast" onfocus="this.value=''"/></th>
+        <th><input class="w3-button w3-round w3-blue" type="button" value="Get Last name" onclick="lastnameselect(document.getElementById('theUserLast').value);"  /></th>
+    </tr>
+</table>
+
+<!--Insert data-->
+<form method="POST" action="user_insert.php" >
+    Username:<input type="text" name="username" /><br />
+    First Name:<input type="text" name="firstName" /><br />
+    Last Name:<input type="text" name="lastName" /><br />
+    Password:<input type="password" name="password" /><br />
+    <input type="submit" value="Create User" />
+</form>
+
+<!--Delete data-->
+<form method="POST" action="user_delete.php" >
+    Username:<input type="text" name="username" /><br /><br />
+    <input type="submit" value="Eliminate User" />
+</form>
+
+<br>
+<br>
+<br>
+
+<!--Display data from query-->
+<div id="firstName"></div>
+<div id="lastName" ></div>
+<div id="userName" ></div>
+
+
