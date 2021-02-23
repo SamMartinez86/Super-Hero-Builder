@@ -9,7 +9,7 @@ class UserDAO {
 
         if ($result->num_rows > 0) {
         // output data of each row
-        
+        /*
         while($row = $result->fetch_assoc()) {
             $user->setFirstName($row["first_name"]);
             $user->setLastName($row["last_name"]);
@@ -17,6 +17,7 @@ class UserDAO {
             $user->setPassword($row["password"]);
             $user->setAbilityRating($row["ability_rating"]);
         }
+        */
         
         } else {
             echo "0 results";
