@@ -57,6 +57,8 @@ class UserDAO {
             $user->setFirstName($row["first_name"]);
             $user->setLastName($row["last_name"]);
             $user->setUsername($row["username"]);
+            $user->setPassword($row["password"]);
+            $user->setAbilityRating($row["ability_rating"]);
         }
         } else {
             echo "0 results";
@@ -77,6 +79,8 @@ class UserDAO {
             $user->setFirstName($row["first_name"]);
             $user->setLastName($row["last_name"]);
             $user->setUsername($row["username"]);
+            $user->setPassword($row["password"]);
+            $user->setAbilityRating($row["ability_rating"]);
         }
         } else {
             echo "0 results";
@@ -97,6 +101,8 @@ class UserDAO {
             $user->setFirstName($row["first_name"]);
             $user->setLastName($row["last_name"]);
             $user->setUsername($row["username"]);
+            $user->setPassword($row["password"]);
+            $user->setAbilityRating($row["ability_rating"]);
         }
         } else {
             echo "0 results";
@@ -152,28 +158,17 @@ class UserDAO {
         $sql = "SELECT first_name, last_name, username, ability_rating, password, user_id FROM user WHERE ability_rating =" . $user->getAbilityRating();
         $result = $conn->query($sql);
 
-        
         if ($result->num_rows > 0) {
-            
-            echo "<table>";
-            // output data of each row
-            while($row = $result->fetch_assoc()) {
+        // output data of each row
+        
+        while($row = $result->fetch_assoc()) {
+            $user->setFirstName($row["first_name"]);
+            $user->setLastName($row["last_name"]);
+            $user->setUsername($row["username"]);
+            $user->setPassword($row["password"]);
+            $user->setAbilityRating($row["ability_rating"]);
+        }
 
-                echo "<tr><td>" . $row["first_name"] . "</td><td>";
-
-                /*
-                $user->setFirstName($row["first_name"]);
-                $user->setLastName($row["last_name"]);
-                $user->setUsername($row["username"]);
-                $user->setPassword($row["password"]);
-                $user->setAbilityRating($row["ability_rating"]);
-                */
-
-            
-
-            }
-            
-            echo "</table>";
         } else {
             echo "0 results";
         }
