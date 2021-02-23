@@ -104,6 +104,12 @@ class User implements \JsonSerializable {
     return $this;
     }
 
+  // for everybody
+  function getEverybody(){
+    $userDAO = new userDAO();
+    $userDAO->getEverybody($this);
+    return $this;
+  }  
 
   function createUser(){
     $userDAO = new userDAO();

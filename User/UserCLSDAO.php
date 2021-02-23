@@ -186,8 +186,30 @@ class UserDAO {
     function getEverybody($user){
         require_once('./Utilities/Connection.php');
         
-        $sql = "SELECT first_name, last_name, username, ability_rating, password, user_id FROM user WHERE ability_rating =" . $user->getAbilityRating();
+        $sql = "SELECT * FROM user";
         $result = $conn->query($sql);
+
+        
+        if ($result->num_rows > 0) {
+            
+            echo "<table>";
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+
+                echo "<tr><td>" . $row["first_name"] . "</td>";
+                echo "<td>" . $row["last_name"] . "</td>";
+                echo "<td>" . $row["username"] . "</td>";
+                echo "<td>" . $row["ability_rating"] . "</td></tr>";
+
+            }
+            
+            echo "</table>";
+        } else {
+            echo "0 results";
+        }
+
+        
+        $conn->close();
     }
 
 }

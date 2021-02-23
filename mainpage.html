@@ -103,8 +103,14 @@ function lastnameselect(last_name)
                 document.getElementById("userName").innerHTML = "";
         });
     }
+// print everybody 
+function showeverybody(){
+    fetch('https://cs3620app.azurewebsites.net/user_view.php')
+}
 
 </script>
+
+<div onload="showeverybody();"></div>
 
 <!--Query data-->
 <table class="w3-table" style="width:50%">
