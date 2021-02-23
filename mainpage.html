@@ -117,7 +117,7 @@ function lastnameselect(last_name)
 function abilityselect(ability_rating)
     {
         fetch('https://cs3620app.azurewebsites.net/userability.php?id=' + ability_rating)
-        .then(response => response.json())
+        .then(console.log(response => response.json())
         .then(
 
             function (data){
