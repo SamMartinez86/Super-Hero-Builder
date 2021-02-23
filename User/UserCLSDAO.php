@@ -4,7 +4,7 @@ class UserDAO {
   function getUser($user){
     require_once('./Utilities/Connection.php');
     
-    $sql = "SELECT first_name, last_name, username, user_id FROM user WHERE user_id =" . $user->getUserId();
+    $sql = "SELECT first_name, last_name, username, ability_rating, user_id FROM user WHERE user_id =" . $user->getUserId();
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -13,6 +13,7 @@ class UserDAO {
         $user->setFirstName($row["first_name"]);
         $user->setLastName($row["last_name"]);
         $user->setUsername($row["username"]);
+        $user->setAbilityRating($row["ability_rating"]);
     }
     } else {
         echo "0 results";

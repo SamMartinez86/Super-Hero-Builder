@@ -23,7 +23,7 @@
 // select statement based off user id
     function userselect(user_id)
     {
-        fetch('https://cs3620app.azurewebsites.net/users.php?id=' + user_id)
+        fetch('https://cs3620app.azurewebsites.net/userid.php?id=' + user_id)
         .then(response => response.json())
         .then(
 
