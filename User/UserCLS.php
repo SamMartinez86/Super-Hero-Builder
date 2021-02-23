@@ -8,34 +8,46 @@ class User implements \JsonSerializable {
   private $first_name;
   private $last_name;
   private $password;
+  private $ability_rating
 
-  // Methods
+
+  // properties
   function __construct() {
   }
+
+  // User id
   function getUserId(){
     return $this->user_id;
   }
   function setUserId($user_id){
     $this->user_id = $user_id;
   }
+
+  // User name
   function getUsername() {
     return $this->username;
   }
   function setUsername($username){
     $this->username = $username;
   }
+
+  // First name
   function getFirstName() {
     return $this->first_name;
   }
   function setFirstName($first_name){
     $this->first_name = $first_name;
   }
+
+  // Last name
   function getLastName() {
     return $this->last_name;
   }
   function setLastName($last_name){
     $this->last_name = $last_name;
   }
+
+  // Password
   function setPassword($password){
     $this->password = hash("sha256", $password);
   }
@@ -43,6 +55,17 @@ class User implements \JsonSerializable {
     return $this->password;
   }
 
+  // Ability rating
+  function setAbilityRating($ability_rating){
+      $this->ability_rating = $ability_rating;
+  }
+  function getAbilityRating(){
+      return $this->ability_rating;
+  }
+
+  // methods
+
+  // for user id
   function getUser($user_id){
     $this->user_id = $user_id;
     $userDAO = new userDAO();
@@ -73,6 +96,14 @@ class User implements \JsonSerializable {
     $userDAO->getUserL($this);
     return $this;
   }
+
+  // for Ability
+  function getAbility($ability_rating){
+    $this->ability_rating = $ability_rating;
+    $userDAO = new userDAO();
+    $userDAO->getAbility($this);
+    return $this;
+    }
 
   function createUser(){
     $userDAO = new userDAO();

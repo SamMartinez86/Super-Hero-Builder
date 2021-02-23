@@ -5,7 +5,7 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
-   require_once('./user/user.php');
+   require_once('./User/UserCLS.php');
 
     $user = new user();
     $user->getUserF($_GET["id"]);

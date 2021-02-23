@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 
 session_start();
 
-require_once('./user/user.php');
+require_once('./User/UserCLS.php');
 
 $user = new user();
 $user->deleteUser($_POST['username']);

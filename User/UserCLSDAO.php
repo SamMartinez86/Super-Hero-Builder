@@ -107,12 +107,14 @@ class UserDAO {
     `username`,
     `password`,
     `first_name`,
-    `last_name`)
+    `last_name`,
+    `ability_rating`)
     VALUES
     ('" . $user->getUsername() . "',
     '" . $user->getPassword() . "',
     '" . $user->getFirstName() . "',
-    '" . $user->getLastName() . "'
+    '" . $user->getLastName() . "',
+    '" . $user->getAbilityRating() . "'
     );";
 
     if ($conn->query($sql) === TRUE) {
@@ -138,7 +140,7 @@ class UserDAO {
     $conn->close();
   }
  // select all query
-  function getUser($user){
+  function getAbility($ability_rating){
     require_once('./Utilities/Connection.php');
     
     $sql = "SELECT * FROM user;
@@ -150,6 +152,7 @@ class UserDAO {
         $user->setFirstName($row["first_name"]);
         $user->setLastName($row["last_name"]);
         $user->setUsername($row["username"]);
+        $user->setAbilityRating($row["ability_rating"]);
     }
     } else {
         echo "0 results";

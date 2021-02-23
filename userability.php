@@ -8,7 +8,7 @@
    require_once('./User/UserCLS.php');
 
     $user = new user();
-    $user->getUserL($_GET["id"]);
+    $user->getAbility($_GET["id"]);
 
     echo json_encode($user);
 
