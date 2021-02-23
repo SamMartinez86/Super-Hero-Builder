@@ -144,11 +144,9 @@ function abilityselect(ability_rating)
 function everybodyselect()
     {
         fetch('https://cs3620app.azurewebsites.net/userability.php')
-        .then(response => response.json())
-        .then(
-            function (data){
-                console.log(data);
-            }
+        //.then(response => response.json())
+        .then(console.log(response => response.json())
+        .then(function(data){ console.log(response) })
         ).catch((error) => {
             alert("Can't get all the data")
         });
