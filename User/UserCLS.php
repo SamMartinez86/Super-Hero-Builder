@@ -8,13 +8,12 @@ class User implements \JsonSerializable {
   private $first_name;
   private $last_name;
   private $password;
-  private $ability_rating
+  private $ability_rating;
 
 
   // properties
   function __construct() {
   }
-
   // User id
   function getUserId(){
     return $this->user_id;
@@ -104,6 +103,7 @@ class User implements \JsonSerializable {
     $userDAO->getAbility($this);
     return $this;
     }
+
 
   function createUser(){
     $userDAO = new userDAO();
