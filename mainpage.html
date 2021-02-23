@@ -125,9 +125,8 @@ function abilityselect(ability_rating)
                 document.getElementById("lastName").innerHTML = data.last_name;
                 document.getElementById("userName").innerHTML = data.username;
                 document.getElementById("abilityrating").innerHTML = data.ability_rating;
-                array.forEach(element => {
-                    console.log(data);
-                });
+                console.log(data);
+
                 
             }
 
@@ -144,9 +143,8 @@ function abilityselect(ability_rating)
 function everybodyselect()
     {
         fetch('https://cs3620app.azurewebsites.net/userability.php')
-        //.then(response => response.json())
-        .then(console.log(response => response.json())
-        .then(function(data){ console.log(response) })
+        .then(response => response.json())
+        .then(function(data){ console.log(response) }
         ).catch((error) => {
             alert("Can't get all the data")
         });
