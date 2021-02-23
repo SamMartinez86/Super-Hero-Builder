@@ -31,6 +31,7 @@
                 document.getElementById("firstName").innerHTML = data.first_name;
                 document.getElementById("lastName").innerHTML = data.last_name;
                 document.getElementById("userName").innerHTML = data.username;
+                document.getElementById("abilityrating").innerHTML = data.ability_rating;
             }
 
         ).catch((error) => {
@@ -38,6 +39,7 @@
             document.getElementById("firstName").innerHTML = "";
                 document.getElementById("lastName").innerHTML = "";
                 document.getElementById("userName").innerHTML = "";
+                document.getElementById("abilityrating").innerHTML = "";
         });
     }
 
@@ -52,6 +54,8 @@
                 document.getElementById("firstName").innerHTML = data.first_name;
                 document.getElementById("lastName").innerHTML = data.last_name;
                 document.getElementById("userName").innerHTML = data.username;
+                document.getElementById("abilityrating").innerHTML = data.ability_rating;
+                
             }
 
         ).catch((error) => {
@@ -59,6 +63,7 @@
             document.getElementById("firstName").innerHTML = "";
                 document.getElementById("lastName").innerHTML = "";
                 document.getElementById("userName").innerHTML = "";
+                document.getElementById("abilityrating").innerHTML = "";
         });
     }
 
@@ -73,6 +78,7 @@ function firstnameselect(first_name)
                 document.getElementById("firstName").innerHTML = data.first_name;
                 document.getElementById("lastName").innerHTML = data.last_name;
                 document.getElementById("userName").innerHTML = data.username;
+                document.getElementById("abilityrating").innerHTML = data.ability_rating;
             }
 
         ).catch((error) => {
@@ -80,6 +86,7 @@ function firstnameselect(first_name)
             document.getElementById("firstName").innerHTML = "";
                 document.getElementById("lastName").innerHTML = "";
                 document.getElementById("userName").innerHTML = "";
+                document.getElementById("abilityrating").innerHTML = "";
         });
     }
 
@@ -94,6 +101,7 @@ function lastnameselect(last_name)
                 document.getElementById("firstName").innerHTML = data.first_name;
                 document.getElementById("lastName").innerHTML = data.last_name;
                 document.getElementById("userName").innerHTML = data.username;
+                document.getElementById("abilityrating").innerHTML = data.ability_rating;
             }
 
         ).catch((error) => {
@@ -101,17 +109,53 @@ function lastnameselect(last_name)
             document.getElementById("firstName").innerHTML = "";
                 document.getElementById("lastName").innerHTML = "";
                 document.getElementById("userName").innerHTML = "";
+                document.getElementById("abilityrating").innerHTML = "";
         });
     }
-// print everybody 
+
+// select statement based off last name
+function abilityselect(ability_rating)
+    {
+        fetch('https://cs3620app.azurewebsites.net/userability.php?id=' + ability_rating)
+        .then(response => response.json())
+        .then(
+
+            function (data){
+                document.getElementById("firstName").innerHTML = data.first_name;
+                document.getElementById("lastName").innerHTML = data.last_name;
+                document.getElementById("userName").innerHTML = data.username;
+                document.getElementById("abilityrating").innerHTML = data.ability_rating;
+            }
+
+        ).catch((error) => {
+            alert("That user does not yet exist")
+            document.getElementById("firstName").innerHTML = "";
+                document.getElementById("lastName").innerHTML = "";
+                document.getElementById("userName").innerHTML = "";
+                document.getElementById("abilityrating").innerHTML = "";
+        });
+    }
+
+// show all data
+/*
 function showeverybody(){
     fetch('https://cs3620app.azurewebsites.net/user_view.php')
+    .then(response => response.json())
+    .then(
+        function (data){
+            document.getElementById("everybody").innerHTML = data.;
+
+        }
+    ).catch((error) => {
+        alert("trouble displaying")
+    });    
 }
+*/
 
 </script>
-
-<div onload="showeverybody();"></div>
-
+<!--
+<div onload="showeverybody(document.getElementById('everybody').value);" ></div>
+-->
 <!--Query data-->
 <table class="w3-table" style="width:50%">
     <tr>
@@ -129,6 +173,10 @@ function showeverybody(){
     <tr>
         <th>Last Name: <input class="w3-input" type="text" id="theUserLast" onfocus="this.value=''"/></th>
         <th><input class="w3-button w3-round w3-blue" type="button" value="Get Last name" onclick="lastnameselect(document.getElementById('theUserLast').value);"  /></th>
+    </tr>
+    <tr>
+        <th>Ability Rating: <input class="w3-input" type="text" id="theAbilityrating" onfocus="this.value=''"/></th>
+        <th><input class="w3-button w3-round w3-blue" type="button" value="Get ability rating" onclick="abilityselect(document.getElementById('theAbilityrating').value);"  /></th>
     </tr>
 </table>
 
@@ -155,5 +203,6 @@ function showeverybody(){
 <div id="firstName"></div>
 <div id="lastName" ></div>
 <div id="userName" ></div>
+<div id="abilityrating" ></div>
 
 
