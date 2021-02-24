@@ -4,7 +4,7 @@ class UserDAO {
     function getUser($user){
         require_once('./Utilities/Connection.php');
         
-        $sql = "SELECT first_name, last_name, username, ability_rating, password, user_id FROM user WHERE user_id =" . $user->getUserId();
+        $sql = "SELECT first_name, last_name, username, ability_rating, user_id FROM user WHERE user_id =" . $user->getUserId();
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -47,7 +47,7 @@ class UserDAO {
     function getUserN($user){
         require_once('./Utilities/Connection.php');
         
-        $sql = "SELECT first_name, last_name, username, ability_rating, FROM user WHERE username ="."'". $user->getUsername() ."'";
+        $sql = "SELECT first_name, last_name, username, ability_rating, , user_id FROM user WHERE username ="."'". $user->getUsername() ."'";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -56,7 +56,6 @@ class UserDAO {
             $user->setFirstName($row["first_name"]);
             $user->setLastName($row["last_name"]);
             $user->setUsername($row["username"]);
-            $user->setPassword($row["password"]);
             $user->setAbilityRating($row["ability_rating"]);
         }
         } else {
@@ -90,7 +89,7 @@ class UserDAO {
     function getUserL($user){
         require_once('./Utilities/Connection.php');
         
-        $sql = "SELECT first_name, last_name, username, ability_rating, FROM user WHERE last_name ="."'". $user->getLastName() ."'";
+        $sql = "SELECT first_name, last_name, username, ability_rating, , user_id FROM user WHERE last_name ="."'". $user->getLastName() ."'";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -152,7 +151,7 @@ class UserDAO {
     function getAbility($user){
         require_once('./Utilities/Connection.php');
         
-        $sql = "SELECT first_name, last_name, username, ability_rating, password, user_id FROM user WHERE ability_rating =" . $user->getAbilityRating();
+        $sql = "SELECT first_name, last_name, username, ability_rating, user_id FROM user WHERE ability_rating =" . $user->getAbilityRating();
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
@@ -162,7 +161,6 @@ class UserDAO {
             $user->setFirstName($row["first_name"]);
             $user->setLastName($row["last_name"]);
             $user->setUsername($row["username"]);
-            $user->setPassword($row["password"]);
             $user->setAbilityRating($row["ability_rating"]);
         }
 
